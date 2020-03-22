@@ -1,0 +1,58 @@
+*install virtualenv
+$ python3 -m pip install --user --upgrade pip
+$ python3 -m pip install --user virtualenv
+
+$ virtualenv django_env
+$ source django_env/bin/activate
+
+*install djnago
+$ pip install django djangorestframework
+
+$ django-admin.py startproject projectname
+$ code .
+$ cd projectname
+$ python manage.py startapp appname
+
+---- code code code ----------------
+
+* make migrations to create db and connect db
+$ python manage.py makemigrations
+$ python manage.py migrate
+
+* run server
+$ python manage.py runserver
+
+-- post product, get products -------------
+
+* deactivate virtual environment
+$ deactivate
+
+
+* Heroku deploy
+https://www.codementor.io/@jamesezechukwu/how-to-deploy-django-app-on-heroku-dtsee04d4
+
+#COLLECTSTATIC error?
+$ heroku config:set     DISABLE_COLLECTSTATIC=1  
+
+
+#runtime.txt error?
+runtime.txt> python-3.7.6
+NOT Python 3.7.6
+
+WHITENOISE 4.0 error?
+settings.py >
+# Add this
+'whitenoise.middleware.WhiteNoiseMiddleware',
+# at the top in MIDDLEWARE
+
+#  Change configuration for static files storage using whitenoise
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+
+
+https://devcenter.heroku.com/articles/django-assets
+
+
+------pushed------
+inventoryasif.heroku.com
+http://inventoryasif.herokuapp.com/api/products/
